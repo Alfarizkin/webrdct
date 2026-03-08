@@ -1,11 +1,13 @@
 import "./style.css"
-import useSmoothScroll from "../hooks/useSmoothScroll"
-import useNavbarScroll from "../hooks/useNavbarScroll"
-import useScrollReveal from "../hooks/useScrollReveal"
-import useParallax from "../hooks/useParallax"
-import useScrollProgress from "../hooks/useScrollProgress"
-import useParticles from "../hooks/useParticles"
-import useActiveNav from "../hooks/useActiveNav"
+import useSmoothScroll from "../../hooks/useSmoothScroll"
+import useNavbarScroll from "../../hooks/useNavbarScroll"
+import useScrollReveal from "../../hooks/useScrollReveal"
+import useParallax from "../../hooks/useParallax"
+import useScrollProgress from "../../hooks/useScrollProgress"
+import useParticles from "../../hooks/useParticles"
+import useActiveNav from "../../hooks/useActiveNav"
+import Home_BG from '../../assets/background/Home_BG.png'
+import RDCT_Logo from '../../assets/background/RDCT_Logo.png'
 
 function Homepage() {
 
@@ -25,7 +27,7 @@ function Homepage() {
 
         <div className="navbar" id="navbar">
           <div className="logo-container">
-            <img src="/Assets/Background/RDCT_Logo.png" alt="Logo" className="logo" />
+            <img src={RDCT_Logo} alt="Logo" className="logo" />
           </div>
 
           <div className="nav-container">
@@ -48,8 +50,8 @@ function Homepage() {
 
         <div className="hero-background">
           <img
-            src="/Assets/Background/Home_BG.png"
-            alt="Background"
+            src={Home_BG}
+            alt="background"
             className="hero-bg-image"
           />
           <div className="hero-overlay"></div>

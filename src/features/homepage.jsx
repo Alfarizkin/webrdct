@@ -1,4 +1,4 @@
-import "/style.css"
+import "./style.css"
 import useSmoothScroll from "../hooks/useSmoothScroll"
 import useNavbarScroll from "../hooks/useNavbarScroll"
 import useScrollReveal from "../hooks/useScrollReveal"
@@ -7,7 +7,7 @@ import useScrollProgress from "../hooks/useScrollProgress"
 import useParticles from "../hooks/useParticles"
 import useActiveNav from "../hooks/useActiveNav"
 
-function HomePage() {
+function Homepage() {
 
   useSmoothScroll()
   useNavbarScroll()
@@ -118,4 +118,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default Homepage

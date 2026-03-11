@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ProductsSection from "./components/ProductsSection";
@@ -14,26 +14,39 @@ export default function Homepage() {
   return (
     <div className="scroll-wrapper" ref={scrollWrapperRef}>
       <article>
-        <section className="section-full scroll-section" id="hero">
-          <Navbar />
+        {/* HERO */}
+        <section className="scroll-section relative bg-[#1c1c1c]" id="hero">
+
           <HeroSection />
         </section>
 
-        <section className="section-full scroll-section products-section" id="products">
+        {/* PRODUCTS */}
+        <section
+          className="scroll-section bg-[#ededed] rounded-t-[50px] overflow-y-auto"
+          id="products"
+        >
           <ProductsSection />
         </section>
 
-        <section className="section-full scroll-section gallery-section" id="gallery" data-section="3">
+        {/* GALLERY */}
+        <section
+          className="scroll-section bg-[#ededed] overflow-y-auto"
+          id="gallery"
+        >
           <GallerySection />
         </section>
 
-        <section className="section-full scroll-section contact-section" id="contact" data-section="4">
+        {/* CONTACT */}
+        <section
+          className="scroll-section bg-[#1c1c1c] relative overflow-hidden flex items-center justify-center"
+          id="contact"
+        >
           <ContactSection />
         </section>
       </article>
 
-      {/* Floating Particles */}
-      <div className="particles-container" id="particles" />
+      {/* Floating particles — dihandle oleh useScrollEffects */}
+      <div className="fixed inset-0 pointer-events-none z-[1]" id="particles" />
     </div>
   );
 }

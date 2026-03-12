@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import logo from '../../../assets/background/RDCT_Logo.png';
+import navbarbg from '../../assets/background/navbarbg.png'
 
 const NAV_LINKS = [
   { name: "Products", path: "/" },
@@ -12,51 +12,16 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Efek buat ganti style navbar pas di-scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      // Karena lo pake scroll-wrapper, kita deteksi scroll di container tersebut
-      const wrapper = document.querySelector(".scroll-wrapper");
-      if (wrapper && wrapper.scrollTop > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    const wrapper = document.querySelector(".scroll-wrapper");
-    wrapper?.addEventListener("scroll", handleScroll);
-    return () => wrapper?.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    const target = document.querySelector(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    setMenuOpen(false);
-  };
 
   return (
     <nav 
-      className={`relative top-0 left-0 w-full z-[1000] px-8 transition-all duration-500 flex items-center justify-between
-      ${isScrolled ? "py-4 bg-[#1c1c1c]/95 backdrop-blur-md shadow-xl" : "py-12 bg-transparent"}`}
+      className='relative top-0 left-0 w-full z-[1000] flex flex-col items-center justify-between gap-14.5 bg-[#EDEDED]'
     >
-      {/* Logo Container */}
-      <motion.div
-        className="w-[180px] md:w-[205px] cursor-pointer"
-        whileHover={{ scale: 1.05, rotate: 2 }}
-        onClick={(e) => handleNavClick(e, "#hero")}
-      >
-        <img src={logo} alt="Logo" className="w-full h-auto object-contain" />
-      </motion.div>
+      <img src={navbarbg} className="w-full h-87.5"></img>
 
       {/* Nav Menu Desktop */}
-      <div className="flex">
-        <div className="hidden md:flex gap-16 lg:gap-20">
+      <div className="w-full flex items-start px-16">
+        <div className="hidden md:flex gap-18">
           {NAV_LINKS.map(link => (
             <motion.div 
               key={link.name}
@@ -64,11 +29,11 @@ export default function Navbar() {
             >
               <Link
                 to={link.path}
-                className="!text-[#ededed] no-underline text-[22px] lg:text-[27px] relative group" style={{ fontFamily: "Inter" }}
+                className="!text-[#060606] no-underline text-[22px] lg:text-[27px] relative group" style={{ fontFamily: "Inter" }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.name}
-                <span className="absolute bottom-[-5px] left-0 h-[2px] w-0 bg-gradient-to-r from-[#ededed] to-transparent transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-[-5px] left-0 h-[2px] w-0 bg-gradient-to-r from-[#060606] to-transparent transition-all duration-300 group-hover:w-full" />
               </Link>
             </motion.div>
           ))}
@@ -107,7 +72,7 @@ export default function Navbar() {
             {NAV_LINKS.map(link => (
               <Link
                 to={link.path}
-                className="!text-[#ededed] text-3xl" style={{ fontFamily: "Inter" }}
+                className="!text-[#060606] text-3xl" style={{ fontFamily: "Inter" }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.name}

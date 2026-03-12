@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif, 'Inter', 'Istok Web';
   line-height: 1.5;
   font-weight: 400;
 
@@ -19,6 +17,7 @@
 }
 
 body {
+  font-family: 'Inter', 'Istok Web';
   width: 100%;
   min-height: 100vh;
   background-color: #1c1c1c;

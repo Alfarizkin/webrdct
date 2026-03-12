@@ -10,7 +10,7 @@ const GALLERY_ITEMS = [
     title: "ECHOES BENEATH",
     description: "Descend into Echoes Beneath, a chilling first-person psychological horror game where your choices leads to multiple endings. Play as Xavier, a sewer inspection leader crushed by medical debts, facing a deceptively simple job that unravels into terror.",
     tags: "Horror, Psychological Horror, Singleplayer",
-    link: "/EBPage",
+    link: "/webrdct/echoes-beneath",
     imageFirst: true,
   },
   {
@@ -20,16 +20,15 @@ const GALLERY_ITEMS = [
     title: "Far Rouge Horizon",
     description: "A space-themed multiplayer game that requires you to travel through space while being shot by enemies. Playable with up to four friends.",
     tags: "Adventure, Puzzle",
-    link: "/EBPage",
+    link: "/webrdct/frh",
     imageFirst: false,
   },
 ];
 
 export default function GallerySection() {
   return (
-    <div className="w-full h-full flex flex-col justify-center py-8 px-4 max-w-[1920px] mx-auto">
+    <div className="w-full h-full flex flex-col justify-center py-8 px-4 max-w-[1920px] mx-auto overflow-x-hidden">
       
-      {/* JUDUL - Play terus */}
       <motion.p
         className="font-['Istok_Web'] text-[clamp(2rem,4vw,52px)] text-[#1c1c1c] text-center mb-8"
         initial={{ opacity: 0, y: 30 }}
@@ -48,14 +47,14 @@ export default function GallerySection() {
               initial={{ 
                 opacity: 0, 
                 x: item.side === "left" ? -120 : 120,
-                filter: "blur(4px)" // Tambahin blur dikit pas masuk biar cakep
+                filter: "blur(4px)"
               }}
               whileInView={{ 
                 opacity: 1, 
                 x: 0,
                 filter: "blur(0px)"
               }}
-              viewport={{ once: false, amount: 0.2 }} // Play terus & trigger pas 20% kelihatan
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ 
                 delay: idx * 0.1, 
                 duration: 0.9, 
@@ -63,7 +62,6 @@ export default function GallerySection() {
               }}
             >
               <div className="flex items-stretch min-h-[200px] max-md:flex-col">
-                {/* Image Section - Left Side */}
                 {item.imageFirst && (
                   <div className="flex-[0_0_22%] overflow-hidden bg-black">
                     <motion.img

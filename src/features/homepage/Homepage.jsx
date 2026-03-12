@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ProductsSection from "./components/ProductsSection";
 import GallerySection from "./components/GallerySection";
@@ -12,40 +11,40 @@ export default function Homepage() {
   useScrollEffects(scrollWrapperRef);
 
   return (
-    <div className="scroll-wrapper" ref={scrollWrapperRef}>
-      <article>
-        {/* HERO */}
-        <section className="scroll-section relative bg-[#1c1c1c]" id="hero">
+    <div 
+      className="scroll-wrapper w-full overflow-y-scroll h-screen overflow-x-hidden snap-y snap-mandatory no-scrollbar" 
+      // ↑ hapus scroll-smooth
+      ref={scrollWrapperRef}
+    >
+      {/* HERO */}
+      <section className="scroll-section h-dvh w-full relative bg-[#1c1c1c] snap-always snap-center shrink-0" id="hero">
+        <HeroSection />
+      </section>
 
-          <HeroSection />
-        </section>
+      {/* PRODUCTS */}
+      <section
+        className="scroll-section h-dvh w-full bg-[#ededed] rounded-t-[50px] snap-always snap-center shrink-0"
+        id="products"
+      >
+        <ProductsSection />
+      </section>
 
-        {/* PRODUCTS */}
-        <section
-          className="scroll-section bg-[#ededed] rounded-t-[50px] overflow-y-auto"
-          id="products"
-        >
-          <ProductsSection />
-        </section>
+      {/* GALLERY */}
+      <section
+        className="scroll-section h-dvh w-full bg-[#ededed] snap-start snap-always shrink-0"
+        id="gallery"
+      >
+        <GallerySection />
+      </section>
 
-        {/* GALLERY */}
-        <section
-          className="scroll-section bg-[#ededed] overflow-y-auto"
-          id="gallery"
-        >
-          <GallerySection />
-        </section>
+      {/* CONTACT */}
+      <section
+        className="scroll-section h-dvh w-full bg-[#1c1c1c] relative overflow-hidden flex items-center justify-center snap-start snap-always shrink-0"
+        id="contact"
+      >
+        <ContactSection />
+      </section>
 
-        {/* CONTACT */}
-        <section
-          className="scroll-section bg-[#1c1c1c] relative overflow-hidden flex items-center justify-center"
-          id="contact"
-        >
-          <ContactSection />
-        </section>
-      </article>
-
-      {/* Floating particles — dihandle oleh useScrollEffects */}
       <div className="fixed inset-0 pointer-events-none z-[1]" id="particles" />
     </div>
   );

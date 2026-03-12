@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import eb_bg from '../../../assets/background/gallery/EB.png';
 import uset_bg from '../../../assets/background/gallery/USET.png';
 import std_bg from  '../../../assets/background/gallery/StD.png'
@@ -10,7 +11,7 @@ const GALLERY_ITEMS = [
     title: "ECHOES BENEATH",
     description: "Descend into Echoes Beneath, a chilling first-person psychological horror game where your choices leads to multiple ending that reflect your moral compass. Play as Xavier, a sewer inspection leader for Brilliante, crushed by medical debts, facing a deceptively simple job that unravels into terror.",
     tags: "Horror, Psychological Horror, Singleplayer",
-    link: "/webrdct/echoes-beneath",
+    link: "/echoes-beneath",
     imageFirst: true,
   },
   {
@@ -19,7 +20,7 @@ const GALLERY_ITEMS = [
     title: "USET",
     description: "A Narrative Puzzle that takes place in an unknown planet where you play as a rover assigned by the (United Space Exploration Team) from Earth to discover the unknown. All prior rovers have been sent and failed miserably with bit to no important information. In this journey which feels like there's no purpose what will you do and discover?",
     tags: "Advanture, Puzzle",
-    link: "/webrdct/uset",
+    link: "/uset",
     imageFirst: true,
   },
   {
@@ -28,7 +29,7 @@ const GALLERY_ITEMS = [
     title: "Seconds to Dread",
     description: 'A 3D Puzzle Survival Horror game where you escape your fears by navigating between the real world and a nightmarish dreamscape within a limited time. Taking the main theme of "Cost", where player needs to take risks in order to gain higher reward and escape in time.',
     tags: "Horror",
-    link: "/webrdct/std",
+    link: "/std",
     imageFirst: true,
   },
 ];
@@ -64,14 +65,18 @@ export default function GallerySection() {
                   <span className="text-[clamp(0.75rem,1vw,16px)] text-[#989898]">
                     {item.tags}
                   </span>
-                  <motion.a
+                  <motion.div
                     href={item.link}
-                    className="text-[clamp(0.9rem,1.2vw,18px)] text-[#989898] no-underline flex items-center gap-1"
                     whileHover={{ color: "#1c1c1c", x: 8 }}
                     transition={{ duration: 0.3 }}
                   >
-                    See More &gt;&gt;
-                  </motion.a>
+                    <Link
+                      to={item.link}
+                      className="text-[clamp(0.9rem,1.2vw,18px)] text-[#989898] no-underline flex items-center gap-1"
+                    >
+                      See More &gt;&gt;
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
             </div>

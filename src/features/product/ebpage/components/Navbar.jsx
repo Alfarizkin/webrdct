@@ -1,8 +1,26 @@
 import logo from '../../../../assets/background/RDCT_Logo.png';
-import { motion, AnimatePresence } from "motion/react";
-const NAV_LINKS = ["products", "gallery", "about", "contact"];
+import { useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+
+const NAV_LINKS = [
+  { name: "Products", path: "/" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "About", path: "/" },
+  { name: "Contact", path: "/" },
+];
 
 export default function Navbar () {
+    const [menuOpen, setMenuOpen] = useState(false)
+    const handleNavClick = (e, targetId) => {
+        e.preventDefault();
+        const target = document.querySelector(targetId);
+        if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        setMenuOpen(false);
+    };
+
     return (
         <nav className='w-full bg-[#FF0000] py-11.25 px-28.75 top-0 left-0 flex items-center justify-between'>
             <motion.div
@@ -14,18 +32,20 @@ export default function Navbar () {
             </motion.div>
             <div className="flex items-center">
                 <div className="hidden md:flex gap-19">
-                    {NAV_LINKS.map(id => (
-                        <motion.a
-                            key={id}
-                            href={`#${id}`}
-                            className="font-['Inter'] !text-[#060606] no-underline text-[27px] lg:text-[27px] relative group"
-                            onClick={e => handleNavClick(e, `#${id}`)}
-                            whileHover={{ y: -2 }}
+                    {NAV_LINKS.map(link => (
+                        <motion.div 
+                        key={link.name}
+                        whileHover={{ y: -2 }}
                         >
-                            {id.charAt(0).toUpperCase() + id.slice(1)}
-                            {/* Underline Animasi */}
+                        <Link
+                            to={link.path}
+                            className="!text-[#060606] no-underline text-[22px] lg:text-[27px] relative group" style={{ fontFamily: "Inter" }}
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            {link.name}
                             <span className="absolute bottom-[-5px] left-0 h-[2px] w-0 bg-gradient-to-r from-[#060606] to-transparent transition-all duration-300 group-hover:w-full" />
-                        </motion.a>
+                        </Link>
+                        </motion.div>
                     ))}
                 </div>
             </div> 

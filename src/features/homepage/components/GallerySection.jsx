@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import eb_bg from '../../../assets/background/EB_BG.png';
 import frh_bg from '../../../assets/background/FRH_BG.png';
 
@@ -10,7 +11,7 @@ const GALLERY_ITEMS = [
     title: "ECHOES BENEATH",
     description: "Descend into Echoes Beneath, a chilling first-person psychological horror game where your choices leads to multiple endings. Play as Xavier, a sewer inspection leader crushed by medical debts, facing a deceptively simple job that unravels into terror.",
     tags: "Horror, Psychological Horror, Singleplayer",
-    link: "/webrdct/echoes-beneath",
+    link: "/echoes-beneath",
     imageFirst: true,
   },
   {
@@ -20,7 +21,7 @@ const GALLERY_ITEMS = [
     title: "Far Rouge Horizon",
     description: "A space-themed multiplayer game that requires you to travel through space while being shot by enemies. Playable with up to four friends.",
     tags: "Adventure, Puzzle",
-    link: "/webrdct/frh",
+    link: "/frh",
     imageFirst: false,
   },
 ];
@@ -86,14 +87,18 @@ export default function GallerySection() {
                     <span className="font-['Istok_Web'] text-[clamp(0.75rem,1vw,14px)] text-[#989898]">
                       {item.tags}
                     </span>
-                    <motion.a
+                    <motion.div
                       href={item.link}
-                      className="font-['Istok_Web'] text-[clamp(0.9rem,1.2vw,18px)] text-[#989898] no-underline flex items-center gap-1"
                       whileHover={{ color: "#1c1c1c", x: 8 }}
                       transition={{ duration: 0.3 }}
                     >
-                      See More &gt;&gt;
-                    </motion.a>
+                      <Link
+                        to={item.link}
+                        className="font-['Istok_Web'] text-[clamp(0.9rem,1.2vw,18px)] text-[#989898] no-underline flex items-center gap-1"
+                      >
+                        See More &gt;&gt;
+                      </Link>
+                    </motion.div>
                   </div>
                 </div>
 

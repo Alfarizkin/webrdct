@@ -5,7 +5,7 @@ import contentbg from '../../../assets/background/EB Page/contentbg.png'
 
 export default function EBPage() {
     return (
-        <div className="EBPage w-full">
+        <div className="EBPage w-full overflow-x-hidden">
             <Navbar />
             <section className='Hero-Section'>
                 <img src={herobg1} />

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import logo from '../../../assets/background/RDCT_Logo.png';
 
 const NAV_LINKS = [
-  { name: "Products", path: "/" },
+  { name: "Products", path: "/products" },
   { name: "Gallery", path: "/gallery" },
   { name: "About", path: "/" },
   { name: "Contact", path: "/" },

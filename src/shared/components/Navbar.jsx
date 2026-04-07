@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import navbarbg from '../../assets/background/navbarbg.png'
 
 const NAV_LINKS = [
-  { name: "Products", path: "/" },
+  { name: "Products", path: "/products" },
   { name: "Gallery", path: "/gallery" },
   { name: "About", path: "/" },
   { name: "Contact", path: "/" },
@@ -17,11 +17,11 @@ export default function Navbar() {
     <nav 
       className='relative top-0 left-0 w-full z-[1000] flex flex-col items-center justify-between gap-14.5 bg-[#EDEDED]'
     >
-      <img src={navbarbg} className="w-full h-87.5"></img>
+      <img src={navbarbg} className="w-full max-h-[350px] object-cover h-auto" alt="Background"></img>
 
       {/* Nav Menu Desktop */}
       <div className="w-full flex items-start px-16">
-        <div className="hidden md:flex gap-18">
+        <div className="hidden md:flex gap-[clamp(20px,3.75vw,72px)]">
           {NAV_LINKS.map(link => (
             <motion.div 
               key={link.name}
@@ -29,7 +29,7 @@ export default function Navbar() {
             >
               <Link
                 to={link.path}
-                className="!text-[#060606] no-underline text-[22px] lg:text-[27px] relative group" style={{ fontFamily: "Inter" }}
+                className="!text-[#060606] no-underline text-[clamp(18px,2.5vw,27px)] relative group" style={{ fontFamily: "Inter" }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.name}
